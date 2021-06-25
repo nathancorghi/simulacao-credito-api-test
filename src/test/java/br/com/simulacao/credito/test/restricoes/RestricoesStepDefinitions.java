@@ -19,25 +19,25 @@ public class RestricoesStepDefinitions {
     private String cpf;
 
     @Dado("Eu tenho um cpf com restrição")
-    public void eu_tenho_um_cpf_com_restricao() {
+    public void euTenhoUmCpfComRestricao() {
 
         cpf = "97093236014";
     }
 
     @Dado("Eu tenho um cpf sem restrição")
-    public void eu_tenho_um_cpf_sem_restricao() {
+    public void euTenhoUmCpfSemRestricao() {
 
         cpf = "99999999999";
     }
 
     @Quando("Eu chamar a API de consulta restrição por cpf")
-    public void eu_chamar_a_api_de_consulta_restricao_por_cpf() {
+    public void euChamarApiDeConsultaRestricaoPorCpf() throws NoSuchFieldException, IllegalAccessException {
 
         restricoesResponse = restricoesService.consultaRestricoes(cpf);
     }
 
     @Entao("deverá ser retornado a restrição com sucesso")
-    public void devera_ser_retornado_a_restricao_com_sucesso() {
+    public void deveraSerRetornadoARestricaoComSucesso() {
 
         Assert.assertEquals(200, restricoesResponse.getStatusCode());
         Assert.assertNotNull(restricoesResponse.getResponseData().getMensagem());
@@ -45,7 +45,7 @@ public class RestricoesStepDefinitions {
     }
 
     @Entao("não deverá retornar nenhuma restrição")
-    public void nao_devera_retornar_nenhuma_restricao() {
+    public void naoDeveraRetornarNenhumaRestricao() {
 
         Assert.assertEquals(204, restricoesResponse.getStatusCode());
         Assert.assertNull(restricoesResponse.getResponseData());

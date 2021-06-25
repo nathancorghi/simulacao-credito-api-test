@@ -10,4 +10,8 @@ public class ResponseData<T> {
     private T responseData;
 
     private int statusCode;
+
+    private String mensagem;
+
+    private ResponseError erros;
 }

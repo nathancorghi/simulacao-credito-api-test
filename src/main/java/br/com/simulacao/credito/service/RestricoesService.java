@@ -9,7 +9,7 @@ public class RestricoesService extends AbstractService {
 
     private static final String URL_CONSULTA_RESTRICOES = "/api/v1/restricoes/{0}";
 
-    public ResponseData<RestricoesResponse> consultaRestricoes(String cpf) {
+    public ResponseData<RestricoesResponse> consultaRestricoes(String cpf) throws NoSuchFieldException, IllegalAccessException {
 
         return requestUtils.get(URL_CONSULTA_RESTRICOES, RestricoesResponse.class, cpf);
     }
